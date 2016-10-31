@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sequences</title>
+  <link rel="stylesheet" media="all" href="/assets/application-3810e62ea6fca9fbe24279fc0a69eb9d22e2f144892d963be465093b79006678.css" />
+  <script src="/assets/application-25bd6b47ad2ef49757a639cd9dc9d7c4b137f7a0bf03bb8d13757d905d6dfcef.js"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="EoG6sfBIjKTkkIPGrUjga34jVDBQxTDvjZXzmc96qsGHg9tyyW3QOTPay8/E2YW+YEPYnmVYxDCxCfdJrpfPBQ==" />
+</head>
+<body>
+
+<h1>A Quick Puzzle to Test Your Problem Solving</h1>
+
+<p>A short game sheds light on government policy, corporate America and why no one likes to be wrong.</p>
+
+<p>Here’s how it works:</p>
+
+<p>We’ve chosen a rule that some sequences of three numbers obey — and some do not. Your job is to guess what the rule is.</p>
+
+<p>We’ll start by telling you that the sequence 2, 4, 8 obeys the rule:</p>
+
+<ul>
+  <li>
+    2, 4, 8 Obeys the rule
+  </li>
+</ul>
+
+<p>Now it’s your turn. Enter a number sequence in the boxes below, and we’ll tell you whether it satisfies the rule or not. You can test as many sequences as you want.</p>
+
+<ul>
+    <li>
+      1, 2, 3
+
+        Yes!
+    </li>
+
+    <% if @list != nil %>
+      <% @list.each do |guess| %>
+      <li>
+        <%= guess.first_num %>,
+        <%= guess.second_num %>,
+        <%= guess.third_num %>
+        <%= guess.result %>
+      </li>
+      <% end %>
+    <% end %>
+
+
+
+
+</ul>
+
+  <p>
+    Enter a sequence:
+  </p>
+
+<form action="/all_guesses">
+  <label for="first">First number:</label>
+  <input name="first_number" id="first" type="text" placeholder="The first number">
+  <label for="second">Second number:</label>
+  <input name="second_number" id="second" type="text" placeholder="The second number">
+  <label for="third">Third number:</label>
+  <input name="third_number" id="third" type="text" placeholder="The third number">
+
+  <button>
+    Check
+  </button>
+</form>
+
+<hr>
+<form action="/show_answer">
+  <p>
+    When you think you know the rule, describe it in words below and then submit your answer. <strong>Make sure you’re right; you won’t get a second chance.</strong>
+  </p>
+
+  <label for="answer">Your answer:</label>
+  <div>
+    <textarea id="answer" name="q" rows="8" cols="40" placeholder="Describe what you think the rule is"></textarea>
+  </div>
+
+  <button>
+    I think I know it
+  </button>
+</form>
+<hr>
+
+<hr>
+<a href="/clear_guesses">Reset</a>

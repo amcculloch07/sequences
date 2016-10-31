@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427001236) do
+ActiveRecord::Schema.define(version: 20161031202031) do
 
   create_table "guesses", force: :cascade do |t|
-    t.integer  "first"
-    t.integer  "second"
-    t.integer  "third"
+    t.integer  "first_num"
+    t.integer  "second_num"
+    t.integer  "third_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "result"
   end
 
 end
